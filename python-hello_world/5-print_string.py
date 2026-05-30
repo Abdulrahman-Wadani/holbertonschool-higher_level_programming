@@ -2,4 +2,4 @@
 str = "Holberton School"
 str = "Holberton School"
 str = "Holberton School"
-print("Holberton SchoolHolberton SchoolHolberton School\nHolberton School")
+print("Holberton SchoolHolberton SchoolHolberton School\nHolberton")
