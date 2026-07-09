@@ -12,10 +12,11 @@ class CustomObject:
 
     def display(self):
         print(
-            f"Name: {self.name}\nAge: {self.age}\nis Student: {self.is_student}")
+            f"Name: {self.name}\nAge:\
+            {self.age}\nis Student: {self.is_student}")
 
     def serialize(self, filename):
-        try: 
+        try:
             with open(filename, "wb") as f:
                 pickle.dump(self, f)
             pass
