@@ -39,7 +39,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain; charset=utf-8")
             self.end_headers()
 
-            self.wfile.write("NOT FOUND".encode("utf-8"))
+            self.wfile.write("Endpoint not found".encode("utf-8"))
 
 
 if __name__ == "__main__":
