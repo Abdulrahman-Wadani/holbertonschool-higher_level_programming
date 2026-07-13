@@ -25,7 +25,8 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
 
-            data = {"version": "1.0", "description": "A simple API built with http.server"}
+            data = {"version": "1.0", "description": "A simple API built with\
+                    http.server"}
             json_data = j.dumps(data)
             self.wfile.write(json_data.encode("utf-8"))
         elif self.path == "/status":
