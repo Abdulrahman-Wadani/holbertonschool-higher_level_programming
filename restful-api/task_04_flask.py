@@ -40,7 +40,7 @@ def addUser():
     if new_user["username"] in users:
         return jsonify({"error": "Username already exists"}), 409
     users[new_user["username"]] = new_user
-    return jsonify({"message": "User added", "user": new_user}), 201 
+    return jsonify({"message": "User added", "user": new_user}), 201
 
 
 if __name__ == "__main__":
