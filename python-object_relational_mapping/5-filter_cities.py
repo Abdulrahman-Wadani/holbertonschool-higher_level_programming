@@ -24,9 +24,9 @@ if __name__ == "__main__":
                     "ORDER BY cities.id ASC"),
         (sys.argv[4], ))
     data = cur.fetchall()
-    print(str(data[0]), end="")
+    print(data[0][0], end="")
     for row in data[1:]:
         print(end=", ")
-        print(str(row), end="")
+        print(row[0], end="")
     cur.close()
     conn.close()
