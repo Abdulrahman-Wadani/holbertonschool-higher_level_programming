@@ -18,7 +18,8 @@ if __name__ == "__main__":
     )
     cur: MySQLdb.cursors.Cursor = conn.cursor()
     cur.execute(
-        "SELECT * FROM states WHERE name = (%s) ORDER BY id ASC",
+        "{}".format("SELECT * FROM states WHERE name\
+                    LIKE BINARY (%s) ORDER BY id ASC"),
         (sys.argv[4], ))
     data = cur.fetchall()
     for row in data:
