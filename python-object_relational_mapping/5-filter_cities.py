@@ -20,13 +20,13 @@ if __name__ == "__main__":
     cur.execute(
         "{}".format("SELECT cities.name "
                     "FROM states JOIN cities ON cities.state_id = states.id "
-                    "WHERE states.name LIKE BINARY (%s)"
+                    "WHERE states.name LIKE BINARY (%s) "
                     "ORDER BY cities.id ASC"),
         (sys.argv[4], ))
     data = cur.fetchall()
-    print(data[0], end="")
+    print(str(data[0]), end="")
     for row in data[1:]:
         print(end=", ")
-        print(row, end="")
+        print(str(row), end="")
     cur.close()
     conn.close()
