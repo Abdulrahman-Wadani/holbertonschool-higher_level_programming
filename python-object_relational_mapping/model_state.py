@@ -13,5 +13,5 @@ class State(Base):
     Class State that inherits from Base and links to the MySQL table 'states'
     """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
