@@ -1,11 +1,13 @@
 #!/usr/bin/python3
+"""
+Lists all states from the database hbtn_0e_0_usa.
+Usage: ./0-select_states.py <mysql_username> <mysql_password> <database_name>
+"""
 import MySQLdb
-import MySQLdb.cursors
 import sys
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        exit(1)
+
     conn = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -15,7 +17,7 @@ if __name__ == "__main__":
         charset="utf8",
     )
     cur: MySQLdb.cursors.Cursor = conn.cursor()
-    cur.execute("SELECT * FROM states  ORDER BY id")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
     data = cur.fetchall()
     for row in data:
         print(row)
