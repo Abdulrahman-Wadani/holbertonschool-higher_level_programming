@@ -17,16 +17,23 @@ if __name__ == "__main__":
         charset="utf8",
     )
     cur: MySQLdb.cursors.Cursor = conn.cursor()
+
     cur.execute(
-        "{}".format("SELECT cities.name "
-                    "FROM states JOIN cities ON cities.state_id = states.id "
-                    "WHERE states.name LIKE BINARY (%s) "
-                    "ORDER BY cities.id ASC"),
-        (sys.argv[4], ))
+        "SELECT cities.name "
+        "FROM states JOIN cities ON cities.state_id = states.id "
+        "WHERE states.name LIKE BINARY (%s) "
+        "ORDER BY cities.id ASC",
+        (sys.argv[4], )
+    )
     data = cur.fetchall()
-    print(data[0][0], end="")
-    for row in data[1:]:
-        print(end=", ")
-        print(row[0], end="")
+
+    if data:
+        print(data[0][0], end="")
+        for row in data[1:]:
+            print(end=", ")
+            print(row[0], end="")
+
+    print()
+
     cur.close()
     conn.close()
