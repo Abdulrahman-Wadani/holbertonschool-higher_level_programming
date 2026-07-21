@@ -18,9 +18,11 @@ if __name__ == "__main__":
     )
     cur: MySQLdb.cursors.Cursor = conn.cursor()
     cur.execute(
-        "{}".format("SELECT * FROM states WHERE name\
-                    LIKE BINARY (%s) ORDER BY id ASC"),
-        (sys.argv[4], ))
+        "{}".format("SELECT cities.id, cities.name, states.name\
+                    FROM states\
+                    JOIN cities ON cities.state_id = states.id\
+                    ORDER BY cities.id ASC"),
+)
     data = cur.fetchall()
     for row in data:
         print(row)
