@@ -25,6 +25,6 @@ if __name__ == "__main__":
         City.id).all()
 
     for state, city in result:
-        print(f"{state.id}: ({city.id}) {city.name}")
+        print(f"{state.name}: ({city.id}) {city.name}")
 
     session.close()
